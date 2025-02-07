@@ -1,0 +1,82 @@
+/* html と body の初期設定 */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* body を Flexbox で中央寄せ */
+  body {
+    background-color: #000; /* 黒い背景 */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* ゲーム全体のコンテナ（固定サイズ） */
+  #game-container {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    height: 80vh;  /* 画面の80%の高さ（必要に応じて調整） */
+  }
+  
+  /* ストーリーテキストと選択肢を含むコンテナを中央に配置 */
+  #text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* ※ このコンテナのサイズは中身（ストーリーテキスト）の大きさに依存します */
+  }
+  
+  /* ストーリーテキストのスタイル */
+  #story {
+    line-height: 1.6;
+    font-size: 1.1em;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* 選択肢領域を、ストーリーテキストの直下に配置 */
+  #choices {
+    position: absolute;
+    top: 100%;      /* #text-container の下端に合わせる */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10px;  /* ストーリーテキストとの間隔（ここで調整可能） */
+  }
+  
+  /* 選択肢ボタンのスタイル */
+  .choice-button {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 1em;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+  }
+  
+  .choice-button:hover {
+    background-color: #444;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* タイピングエフェクト用の文字設定（以前の設定がある場合） */
+  .char {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .char.visible {
+    opacity: 1;
+  }
+  
